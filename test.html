@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='DIApp'>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <title>Document</title>
 </head>
 
@@ -14,10 +16,19 @@
             <article> article 1</article>
         </section>
     </div>
-    <script>
-        var elem = document.getElementById('target');
-        console.log(elem);
-    </script>
+    <div ng-controller='DIController'>
+        <input type="text" ng-model="name" ng-blur="upper();">
+        <div>
+            {{name}}
+            <hr>
+            {{sayMessage()}}
+        </div>
+
+        <div>
+            <button ng-click="showImage()">show image</button>
+        </div>
+        <img ng-src="src/{{image}}.jpg" alt="">
+    </div>
 </body>
 
 </html>

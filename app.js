@@ -1,22 +1,41 @@
-
-(function(){
-//   use strict للحماية من تعريف المتغيرات تكون داخلية فقط
+(function () {
     'use strict';
-   angular.module('nameCalculator',[])
-    .controller('NameCaculatorController',function($scope){
-            $scope.name = "";
-            $scope.totalValue = 0;
-            $scope.displayNumeric = function(){
-               var totalValue = calculatNumericForString($scope.name);
-               $scope.totalValue = totalValue; 
-            };
-            function calculatNumericForString(string){
-                var totalStringValue = 0;
-                for( var i=0 ; i< string.length; i++){
-                    totalStringValue+= string.charCodeAt(i);
-                
-                }
-                return totalStringValue;
-            }
-        });
+    
+    angular.module('DIApp', [])
+    .controller('DIController', DIController);
+    
+    // function DIController ($scope,
+    //                        $filter,
+    //                        $injector) {
+    //   $scope.name = "salh";
+    
+    //   $scope.upper = function () {
+    //     var upCase = $filter('uppercase');
+    //     $scope.name = upCase($scope.name);
+    //   };
+    
+    //   console.log($injector.annotate(DIController));
+    // }
+    
+    // function AnnonateMe(name, job, blah) {
+    //   return "Blah!";
+    // }
+    
+    // console.log(DIController.toString());
+    
+    // })();
+    DIController.$inject = ['$scope'];
+    function  DIController($scope){
+      $scope.name = 'mohammad';
+      $scope.image = 's';
+      $scope.showImage = function(){
+        $scope.image='s1';
+  
+      }
+      $scope.sayMessage = function(){
+        return 'saud is programmer for php and java scripte and sql';
+      }
+    }
+
 })();
+    
